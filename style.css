@@ -30,8 +30,8 @@ background-color: #1a1a1a; /* Dark background color */
 
 /* Stock Line */
 .stock-line {
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     background-color: transparent; /* Transparent background to allow the line to show through */
 }
 
