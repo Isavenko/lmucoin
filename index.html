@@ -97,6 +97,38 @@
 
     // Start the typewriter effect
     typeWords();
+
+// Function to generate a fluctuating stock line
+    function generateStockLine() {
+        const numPoints = 100; // Number of points in the line
+        const lineHeight = 20; // Height of the line in pixels
+        const lineColor = "#00ff00"; // Green color
+        const fluctuationAmplitude = 10; // Amplitude of fluctuations in pixels
+
+        const canvas = document.createElement("canvas");
+        canvas.width = window.innerWidth;
+        canvas.height = lineHeight;
+
+        const ctx = canvas.getContext("2d");
+        ctx.strokeStyle = lineColor;
+        ctx.lineWidth = 2;
+
+        ctx.beginPath();
+        ctx.moveTo(0, lineHeight / 2);
+
+        for (let i = 1; i < numPoints; i++) {
+            const x = (canvas.width / numPoints) * i;
+            const y = (lineHeight / 2) + (Math.random() * fluctuationAmplitude - fluctuationAmplitude / 2);
+            ctx.lineTo(x, y);
+        }
+
+        ctx.stroke();
+
+        document.body.style.backgroundImage = `url(${canvas.toDataURL()})`;
+    }
+
+    // Generate a new stock line on page load
+    window.onload = generateStockLine;
 </script>
  	
 
