@@ -128,7 +128,7 @@
 
         for (let i = 1; i < numPoints; i++) {
             const x = (canvas.width / numPoints) * i;
-            const y = (canvas.height / 2) + (Math.random() * fluctuationAmplitude - fluctuationAmplitude / 2) + (i*20);
+            const y = (canvas.height / 2) + (Math.random() * fluctuationAmplitude - fluctuationAmplitude / 2) - (i*20);
             ctx.lineTo(x, y);
         }
 
