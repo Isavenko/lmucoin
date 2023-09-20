@@ -17,6 +17,11 @@ background-color: #1a1a1a; /* Dark background color */
 
 }
 
+<div class="floating-container">
+    <div class="stock-line"></div>
+</div>
+
+
 header {
     background-color: #111;
     color: #fff;

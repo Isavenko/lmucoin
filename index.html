@@ -40,6 +40,12 @@
         <p>Invest, Spend, and Grow with LMUCOIN.</p>
         <a href="#how-to-buy" class="cta-button">Get Started</a>
     </div>
+
+<div class="floating-container">
+    <div class="stock-line"></div>
+</div>
+
+
 </section>
     </section>
 
@@ -99,32 +105,36 @@
     typeWords();
 
 // Function to generate a fluctuating stock line
+    // Function to generate a fluctuating stock line
     function generateStockLine() {
         const numPoints = 100; // Number of points in the line
-        const lineHeight = 20; // Height of the line in pixels
+        const lineHeight = 100; // Height of the line in pixels
         const lineColor = "#00ff00"; // Green color
         const fluctuationAmplitude = 10; // Amplitude of fluctuations in pixels
 
+        const stockLine = document.querySelector(".stock-line");
+        stockLine.style.height = `${lineHeight}px`;
+
         const canvas = document.createElement("canvas");
-        canvas.width = window.innerWidth;
-        canvas.height = lineHeight;
+        canvas.width = stockLine.offsetWidth;
+        canvas.height = stockLine.offsetHeight;
 
         const ctx = canvas.getContext("2d");
         ctx.strokeStyle = lineColor;
         ctx.lineWidth = 2;
 
         ctx.beginPath();
-        ctx.moveTo(0, lineHeight / 2);
+        ctx.moveTo(0, canvas.height / 2);
 
         for (let i = 1; i < numPoints; i++) {
             const x = (canvas.width / numPoints) * i;
-            const y = (lineHeight / 2) + (Math.random() * fluctuationAmplitude - fluctuationAmplitude / 2);
+            const y = (canvas.height / 2) + (Math.random() * fluctuationAmplitude - fluctuationAmplitude / 2);
             ctx.lineTo(x, y);
         }
 
         ctx.stroke();
 
-        document.body.style.backgroundImage = `url(${canvas.toDataURL()})`;
+        stockLine.style.backgroundImage = `url(${canvas.toDataURL()})`;
     }
 
     // Generate a new stock line on page load
