@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Spline+Sans+Mono:wght@500&display=swap" rel="stylesheet"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LMUCOIN - Your Campus Cryptocurrency</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#how-to-buy">How to Buy</a></li>
+                <li><a href="#wallet">Wallet</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#blog">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="home">
+        <div class="coin-container">
+    <div class="coin">
+        <div class="side front"></div>
+        <div class="side back"></div>
+	<div class="side left"></div>
+	<div class="side right"></div>
+    </div>
+</div>
+
+	
+    <div class="hero">
+        <h1 style="font-size: xxx-large;">LMUCOIN is <span id="typed-word"></span></h1>
+        <p>Invest, Spend, and Grow with LMUCOIN.</p>
+        <a href="#how-to-buy" class="cta-button">Get Started</a>
+    </div>
+</section>
+    </section>
+
+    <footer>
+        <!-- Footer Content -->
+    </footer>
+
+	<script>
+    const words = ["the future.", "innovation.", "an opportunity.", "real.", "not a scam (trust me bros)."]; // Add more words as needed
+    const typedWordElement = document.getElementById("typed-word");
+    let currentIndex = 0;
+
+    function typeWords() {
+        const currentWord = words[currentIndex];
+        const wordLength = currentWord.length;
+        let charIndex = 0;
+
+        const typeInterval = setInterval(function () {
+            typedWordElement.textContent += currentWord[charIndex];
+            charIndex++;
+
+            if (charIndex === wordLength) {
+                clearInterval(typeInterval);
+
+                setTimeout(function () {
+                    deleteWords();
+                }, 1000); // Delay before removing the word
+            }
+        }, 100); // Typing speed (milliseconds per character)
+    }
+
+    function deleteWords() {
+        const currentWord = typedWordElement.textContent;
+        const wordLength = currentWord.length;
+        let charIndex = wordLength - 1;
+
+        const deleteInterval = setInterval(function () {
+            typedWordElement.textContent = currentWord.substring(0, charIndex);
+            charIndex--;
+
+            if (charIndex < 0) {
+                clearInterval(deleteInterval);
+
+                currentIndex++;
+                if (currentIndex === words.length) {
+                    currentIndex = 0;
+                }
+
+                setTimeout(function () {
+                    typeWords();
+                }, 500); // Delay before typing the next word
+            }
+        }, 50); // Deleting speed (milliseconds per character)
+    }
+
+    // Start the typewriter effect
+    typeWords();
+</script>
+ 	
+
+</body>
+</html>
