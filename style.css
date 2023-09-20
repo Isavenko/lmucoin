@@ -8,7 +8,10 @@ body, h1, h2, h3, p, ul, li {
 /* Define basic styles */
 body {
     font-family: Arial, sans-serif;
-background-color: #222;
+background-color: #1a1a1a; /* Dark background color */
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px; /* Size of the grid squares */
 }
 
 header {
